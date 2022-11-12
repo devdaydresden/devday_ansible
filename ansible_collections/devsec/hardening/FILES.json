@@ -1,0 +1,1545 @@
+{
+ "files": [
+  {
+   "name": ".",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1f10fdc18946577ba12aa52ddf52411253cfde66b07d0c4b301a00ae78e3050c",
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening/templates",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening/templates/hardening.conf.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0778e626b6ffb52c931d2e4f63e6fdf186b0a62efb0f3d10e682a422c7214b2b",
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d158ad2122023e00bcb21fff1c23bee30b060d42292500a7df11e324b8c914aa",
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening/handlers",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening/handlers/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b5230b8af868c5d61b06874b9b1f4cbd696217aa8d9b1f8fbd8e5aa10a81986a",
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d6f48b266eebd6819b21b05a78992cea07a8c45234cafee744ea90ee01156fca",
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3ba46a82e6ffd0a439fbe8a98a5fe75655865aff2979fb50da071d611a32e692",
+   "format": 1
+  },
+  {
+   "name": "roles/nginx_hardening/CHANGELOG.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "753f038222e2c47bdcc42673c0b87dd1d38ff92e9b2ffe91588220da24a52196",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f49509b0079de19c50d4a7c0e1e7c92a57e9b37b872f933c62daffdafe85a7e3",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/templates",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/templates/revoked_keys.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c0530642bd57c20022a288f77e5a9d04b08bd224cb49a4b27dd5b8679a07424d",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/templates/trusted_user_ca_keys.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7421ba0c54b664f4426249e4cd995978cf8ded319811d20be4c0e3395ef57874",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/templates/authorized_principals.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f988464a5cfec3346d1763a37f6639ffa605e48ca1b5c7c5adff761dc83a1766",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/templates/openssh.conf.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "10376e2227cf4320ece4297e3853fa2c61677de79985688b241f17d5633ce6d9",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/templates/opensshd.conf.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "651bbe3210d7ca80aab4b3c11619ca286dde3661bc2cc9c8235999f661419f76",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3e944f68c691a98de5d40307382969d474440e6a3f1514385a0e5fbe62fa55fc",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/handlers",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/handlers/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "641b47a0d488c87bf9f156fe738083a8e171a8e0d773bc367fa589b18b4d8cb6",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/files",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/files/ssh_password",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "08b386a966bc292f357cc5eb175f8168884062ea97c43e32db44af6fb10bff85",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/files/sshd",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0a7cf1f7d4ce6e2139a240713e9ac8853dce13f94d9b87ebf74d32f1269bac07",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/tasks/crypto_hostkeys.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6005df1ca33c12c23b91207242e0e2c5227dd5c2ccf67f88a5887b5b94eab260",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/tasks/ca_keys_and_principals.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "48c8acb800998055ef1efad779baf6dccf2d4aa350fce92588ab26074c8e51e8",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/tasks/crypto_macs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6b2cb87f73a4458c218f194d6e221c08519a818013839847e5fa73749d7779cb",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/tasks/crypto_ciphers.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "42e14889bf40ab65911954b2c6542227a12e3b9ebd9e4e308f9b95b873861026",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/tasks/selinux.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0ad470ea5a6bb2055188b364e166ce623fb3be8756f20f6ee26d632c9bb0cc8e",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/tasks/crypto_kex.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8257c66d98215d7689dba07a744dc988a4e773493545831b5e849ba590fc43af",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/tasks/hardening.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d5150003c146847426d4f554bb6d0df2910a725e0e9aa44dd0820c25c99ac22e",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2203b2d334d8729df86524bd6e9f01da1c34e14be12b301d38dade52ab035119",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "82d938ab1de73356c7756de2fc194eb34fbb1b7161cdb804f8b5a438bc9e7d22",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/vars",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/vars/RedHat.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "911b5a4a4ae17e117224ed7ff4f06e7e3968d32ce066da16e3292dbafb3a17c5",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/vars/SmartOS.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6f0c0d15cc88f8626fcc6ce1e6118ef5b36bae14eb1018dd3e1d9efc12a56106",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/vars/RedHat_7.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "50edb8837ff67cb56de92bcaa6db9a1d5a76f0fe94509f9eed4dffe4f1c71e36",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/vars/FreeBSD.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "848303172c14854ec3b23b0e164b94a134f007daf5f241feb1c69071cb7986d1",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/vars/OpenBSD.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0d2a4b167792a4c1a404ba024805619a6f6e9cea76064cb01737fd055e849311",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/vars/Archlinux.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c74d90243e8a770ad2068dd89d4940a0efafdaf7ac42144bf45f0438934e5ee4",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/vars/Debian.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "10b8588cd7f56863f8e3e23cca2026dddb48efd783f8fdf95ce429e2965aad87",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/vars/Fedora.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "60442dce445d38783612f0955a7fb6929df0907a1b25e70a9642922927971b22",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/vars/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9c034b45996ac8383bb444ee8f91e428cb38dad8d090f732530d266d5a493e8a",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/vars/Suse.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "506280ea5d88a67b67acdbf793b2099519b200c9b9743635fddc8b192cfe467c",
+   "format": 1
+  },
+  {
+   "name": "roles/ssh_hardening/CHANGELOG.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1e440827b1aa2029790046b387fd58272ac29313fb1ad8276fb8ca297a30068b",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f49509b0079de19c50d4a7c0e1e7c92a57e9b37b872f933c62daffdafe85a7e3",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/systemd",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/systemd/coredump.conf.d",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/systemd/coredump.conf.d/coredumps.conf.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3b78e61ce2643835aaa7263cc6aa74a0aa75b3d92e44d0c28fc7b7bfeed3af9f",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/login.defs.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "43e44d5643a33f333f2d00f7d0b9bd034d2b61d147d33dd9fcc803835f8523d5",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/libuser.conf.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "068a1f5af099ac890810958f04d41fbc8ad492ced150a825e6b41b3e6cf9020f",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/default",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/default/ufw.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a1b2321076ad5a3c6fe260957e6ef0e08a0228f4cf06b5cc1f6eb42d7d8cc94b",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/securetty.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e8583f32e4ccb86ac9fc15ea42bed605bceea654d9296724bcf53fa4b3516b6c",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/initramfs-tools",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/initramfs-tools/modules.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "665a6f33749be0a8367a035f3bcea2e8f5faa97be588d268d1df6b7478ebca42",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/sysconfig",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/sysconfig/rhel_sysconfig_init.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3b2358a1f1da2e647e1513dc3e7cb6b81edb4572cf7dfe114790b246fefd4972",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/audit",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/audit/auditd.conf.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fdb991f44de9afd022a52bb2d51ce91a0dffcec524b2e686cbbfdae3a166f4aa",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/pam.d",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/pam.d/rhel_auth.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2a78081c712592da365a818e371b3e3d4a079f2ed15112a95ea994b0f72e01e2",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/profile.d",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/profile.d/tmout.sh.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e812ec92f2f3bbb2683c53dd49868788e98843800ec47055f27947924c964a70",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/profile.d/profile.conf.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "296fed3fa41dc29ef8bb64500ecde30e53d546a02d9b21f65ab79c90dbaaa37a",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/modprobe.d",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/modprobe.d/modprobe.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a24b0b6f0fa9faecc7667f685a2313aedad622bfb190a7fc1799b56361d12047",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/security",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/etc/security/faillock.conf.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8dedfa0a59c6218ca61e327c2bfb9cc3453ea1fefa52189f6db1b9a09d5a879b",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/usr",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/usr/share",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/usr/share/pam-configs",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/usr/share/pam-configs/pam_faillock_authfail.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dc8f9a22818f5f30a76b85f5d9fea5f88c2e5a3f44a108eb2febf07fac7bbc57",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/usr/share/pam-configs/pam_tally2.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "23dab9689a98423f72be6053580c4c56e7ded6c709eb07eab4fe54b859dbfc8c",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/usr/share/pam-configs/pam_passwdqc.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e11befa588cab3629b724d7fffc2e2cd1a4353e4f5fe3cbb161871f32df1aceb",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/templates/usr/share/pam-configs/pam_faillock.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ad3d58e54c4b5043291446e19d8fe6d85d88050cd254906252ea58b29a0c5b68",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "275b1bfdb669031d00c38a6bb20f63135387fd01bb9cb6dd9f02ff6a29abf432",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/handlers",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/handlers/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "62c53aed658634570823e7fcc9363b9119b14385263837acdb455adb205d1597",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/sysctl.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3e938c94e788e793893e05ca8f814e36fdebc129a264e277b600c05f8ded6869",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/modprobe.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b6c2019c823cb047fd27307f06fc06bf7468374559301514684bb62281814e4a",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/minimize_access.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dc934f12b7a742e83248733aa1e753e3230ef9fa6e1ed6825c29330ccc2e4cc9",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/pam_rhel.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "57a8a035dd967d5c73aac82b96e9feaf0adda10df267ea1d06f06828b610688c",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/pam.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "64d4c75c4a5e0bf9b8a1e20a037b28a715a82eed2581ef47900f968522fdb41c",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/login_defs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "caf150a48afc7ae1f8f6f4df6b4e59c0c797f29d4aa11e4c8e789d16a137c554",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/ctrlaltdel.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "70297d43af2fae264911a9fc17b10bebade2612dedd86bd5b75ab46c47d1cc1a",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/auditd.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cd7a90cd244e703cd0d4252b8ca9307dc49ff1e2724919d2735d2c0c3c3f9f55",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/securetty.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6378762351dc7737c729990b084323588033f634cbb30130e9fafd8fdff0cf49",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/limits.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "51e14aa4a6db07ff0f676104734f2e2a06a723ddbdf424fa40a1c86db9b7021c",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/pam_debian.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4eb56a7021d8e9a874c4856be7a4925919007e19cf8e60886728eb14448e8d0b",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/minimize_access_fs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b2fd33cbd5c4c1335df13aa6fe8702e455b524ee8c504a4d7b4dd2b3396d2272",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/apt.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f8a8269fe8472eb15c33a550e948dd19f8b0d8e0296f5a5cb67d9d43828e7b47",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/profile.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a6128955b9605bd4172ed499e994fdbc9b33342267faa679dad75248a467b379",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/selinux.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ac3b479a35033321c6e17740b676bca28abee795536a99c774abb9732e6a34de",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/yum.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8eafab02c722e9a273ad9aad157a0197fd94bd653d2a3fecfef61b2b48216394",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/cron.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cf48f531972f13d1bb30b38a5f0a847c6a527800fb39eb2cf430d849594a3207",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/hardening.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fb93a79957538da2203cf7e25b80617b69eca8f13e01cc2166f4d237f0911d02",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/rhosts.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "08d7c6b1ec7a7b43527b380ef72595fccfd8c4b28d6f42068bd6892349eafa99",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/netrc.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bda73a167bf0cb523e2a238c67240c405c6c59b1046f4ec5b5debce4079748ab",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/suid_sgid.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f0e583d6e3fd9eb66a8dbee3dc598e293dc66636dfa6421ef0051e12c7b1c768",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "62d336effa5e657cfe91ac87b2092dd9377e7f95335f2616c84518e72b29bf0d",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/tasks/user_accounts.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "74a830683e8952aad98f5a422c760851480b83db92caa11b2124cc0b941169e4",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "26bec479081fd8d499627473e87e16f6841826228fea38ff28cc8254ea8aaad4",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/vars",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/vars/RedHat.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8fe94f8b255912e13afcf4f5d9937b9ce81c542dab4330f41478be1e694b18a6",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/vars/Amazon.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7a51c474dec66228ddf8a79b95330844dacb915150b4ae09b1cc8790b63a10f6",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/vars/RedHat_7.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f169d5d96362dd67b9a3be1f7b5923c7693d928990b485b5c7891ae172ebfd2b",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/vars/Archlinux.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ec5a14bf3297ad38ec5f44a73fe61a88ad101efa5a04121ef5dbd6243a2da1f2",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/vars/Debian.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2500c9aadc1004bb249ceb2cfe1562de072c03749a6c6a284a69b5c66cb529f6",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/vars/Fedora.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c0b57ba715f3d4b2db1834b2a001c0998c01374eaf1b8c8d9036e2cf66883142",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/vars/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9b1c9388b9d5d405b6443b997403720d7682f0db9b0f8414a05dab9d9a65e751",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/vars/Suse.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "259c9e06354e8392e688240d766a6a879a341e91754f55d8e3e87d1d0f26df1a",
+   "format": 1
+  },
+  {
+   "name": "roles/os_hardening/CHANGELOG.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "30626bf6aefaeebdcdb6525a57e70702055f11710cb8d3c791f2dafbdfaf70ed",
+   "format": 1
+  },
+  {
+   "name": "roles/windows_hardening",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/apache_hardening",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0e9dee8abe43fe0d75def083aa8ac5de67e90e72d0d807e1553c2285495438a0",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/templates",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/templates/hardening.cnf.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fa1b48d288bb796c79455faa151c91658798b544f74964d056f463f6c1ea1dcc",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/templates/my.cnf.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bf6db8ab3799154eaed9a1b2dbb5c533c5bf315fd12efe1353b86a36dad899ed",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2e055d6eaddef2f4b60784a831a4e3d73c043f0901eea0bd29aca9bbaf885b4f",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/handlers",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/handlers/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "025032d579a8ba653e8d98e9773212f2ac228625643ea9bd3696016fb40feb70",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/tasks/mysql_secure_installation.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "32ab97de96552bdf2ec1eb91c9b38ebaf2d465504fa0cb68d9af7910f79f264c",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/tasks/configure.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bc168fb087adac73e5780aa341ba7c2d4b54ef6375c5b278098db6fca4f90395",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fe573caba457a471d5fec4b7b331498c8cda4f546afb613e8e8be557b11cb2c3",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d6a2d7de6aa683b9b6f461233ac38e7854dd30dc37b12d6386e55045f47ddfee",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/vars",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/vars/RedHat.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7ae67b8b2bcce788d10a7277fe861f7cc964cb4d7abd8fc5f4beff68047f5e10",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/vars/FreeBSD.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1059a03ca46a82cb40c33f48befd4268e2a2813c84986a7c9e85ccddde02bbbf",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/vars/Ubuntu.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "43a73b1fc6f96b88bfe95b2179837b3a2a910fea6ebfd4556eb061711d4b1727",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/vars/Oracle Linux.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a7b0d831e3fafe103d60a14244854779096e9c2941313f42a0a17cfc44ec0125",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/vars/Debian.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5c498ab2c22b8dd247967b99c5c4f997c7de2178d73bdc80e26a9e2b0112d294",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/vars/Fedora.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "63dc3aa99f9d5a942ffd2c51571cae64a63b7c26e49ac1648d692df7bbc78b5d",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/vars/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "720b385d67bc6a5d3977a945851d0ce475f15a31c4cbd0346eaeb2e28ee4e80b",
+   "format": 1
+  },
+  {
+   "name": "roles/mysql_hardening/CHANGELOG.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "69e42a94a809be86ecbc0364d55d6ed8c0798ecbbc2e04d7aa7099f19a6683e5",
+   "format": 1
+  },
+  {
+   "name": "OS_HARDENING_CHANGELOG.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4ec78c64145a1e9c2368b4d9e2568de6e891fccef87c21a6a6449547633d134c",
+   "format": 1
+  },
+  {
+   "name": "meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "meta/runtime.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "df18179bb2f5447a56ac92261a911649b96821c0b2c08eea62d5cc6b0195203f",
+   "format": 1
+  },
+  {
+   "name": "molecule",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/nginx_hardening",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/nginx_hardening/molecule.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "11be80641bd7f8d2ce2c13d458540d04256d4a222e11fba146c8d29036dbc679",
+   "format": 1
+  },
+  {
+   "name": "molecule/nginx_hardening/official-nginx-role-debian.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "366ea606ec4c78f69c1c0780b0d70889af99fe015deda0a7f20eddfd5c1b95d4",
+   "format": 1
+  },
+  {
+   "name": "molecule/nginx_hardening/requirements.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d5fa2db3312a888a5bdf7de47622a701b2a8fa1e862afed80d56b06070cd6155",
+   "format": 1
+  },
+  {
+   "name": "molecule/nginx_hardening/verify.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "89c0d4a0dfcae79a62296d51bc8f07423dff488072b8e236c9a6149257f19921",
+   "format": 1
+  },
+  {
+   "name": "molecule/nginx_hardening/INSTALL.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ccb0bcde193e1b59842203a035d5b4b48eb7cb34443bda76c4440dd83c822421",
+   "format": 1
+  },
+  {
+   "name": "molecule/nginx_hardening/official-nginx-role-redhat.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c417b2f4117abc69a1beff5a39f4ae8b3b515d3f29cd297a39d35698cdc09c01",
+   "format": 1
+  },
+  {
+   "name": "molecule/nginx_hardening/prepare.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a2a94366539dfd9ece2381ba978c7356442969e6f0cca9eb28fd83ab4a9e6c5a",
+   "format": 1
+  },
+  {
+   "name": "molecule/nginx_hardening/converge.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d2fec2752e20909f3c7c35ebc6795c94f3ea5e7aca8e742ba145b1bab4f3fcb4",
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening/molecule.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ff18734d0f28107fa864ec70f75c1f3a326ebab7c0794c803e335ba0ceef9a78",
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening/requirements.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "01c6b9248c363065887dd9c6c35dc9d974e73caa14fc23c01d9ac46b85183f97",
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening/verify.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d4ada7ce98edff68fc8ca5d058e62b6a3271fdaf2f1b27d72a91532a5ac88295",
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening/INSTALL.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ccb0bcde193e1b59842203a035d5b4b48eb7cb34443bda76c4440dd83c822421",
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening/prepare.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "52b40da833902f1d908e3eddb96c43c56adb6d5119d492b55adaab5eb356b6a7",
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening/converge.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1d9978661721a07ea5c6d097dac436a3ccfd1028f4bcb9d4c61c6341d2f76acf",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/molecule.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "71e10797d58c6a56e64a7784ec37bf50ea6ab9d0619ccf6930eee543356f207c",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/verify_tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/verify_tasks/pam.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "506b387b6921030b3795a25d1a40a8fa99becd060b5b5d83e9886bc227d0982e",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/verify_tasks/yum.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4a23f2bc614b6d2a307dad50a0b09499a9a672a299895b8ed489d643f475e97c",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/verify_tasks/netrc.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ca7e33c36df5b85a78fce7b7a652eda6c80c5a10aa669fec0c6ca3e57956ed8f",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/requirements.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "01c6b9248c363065887dd9c6c35dc9d974e73caa14fc23c01d9ac46b85183f97",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/prepare_tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/prepare_tasks/yum.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1eadd3f4acacc93730dc530aa55dddc3da4aaae036544e2417ace2c1d9b38ecf",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/prepare_tasks/netrc.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "52f8d428de8afbbeaf24d4c575759ade0dd0925367d89cfe54700d096f98fdc6",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/verify.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fe53e8a86e9ffa13797b3accd447dd2a80869c88bd967da41bd691beb0575cf5",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/INSTALL.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ccb0bcde193e1b59842203a035d5b4b48eb7cb34443bda76c4440dd83c822421",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/prepare.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "03070f269d7844fd18d93635759f3b14ee562ef66a1b56fb0bd52798a97b31aa",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening/converge.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "048925d3ce9d13694360b1507fddc9e370b9646af63de56451a57906b12923bf",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening_vm",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening_vm/molecule.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "07fdec1982de09f47d170a1795b2437ada6487413d8841a30b91908efd844d1f",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening_vm/verify_tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening_vm/verify_tasks/pam.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "506b387b6921030b3795a25d1a40a8fa99becd060b5b5d83e9886bc227d0982e",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening_vm/verify_tasks/yum.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4a23f2bc614b6d2a307dad50a0b09499a9a672a299895b8ed489d643f475e97c",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening_vm/requirements.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "01c6b9248c363065887dd9c6c35dc9d974e73caa14fc23c01d9ac46b85183f97",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening_vm/prepare_tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening_vm/prepare_tasks/yum.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1eadd3f4acacc93730dc530aa55dddc3da4aaae036544e2417ace2c1d9b38ecf",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening_vm/verify.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "774aa79be843d11b0131e85376483d7e6e7041835f5836256f69bb40fab6aaca",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening_vm/INSTALL.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ccb0bcde193e1b59842203a035d5b4b48eb7cb34443bda76c4440dd83c822421",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening_vm/prepare.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b10dd112512f1f32ce9272aff8429985d7b06f8ab68e7d57b591ed112836ac46",
+   "format": 1
+  },
+  {
+   "name": "molecule/os_hardening_vm/converge.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6ba445dffb24f40dba12f85eab923cac24e3d7e09c53e106a7cc746e52e2b3d5",
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening_custom_tests",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening_custom_tests/molecule.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8d2ce994dedf133607288847414107824a2d0f3ed45de48c1a57930378224ae6",
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening_custom_tests/requirements.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "01c6b9248c363065887dd9c6c35dc9d974e73caa14fc23c01d9ac46b85183f97",
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening_custom_tests/INSTALL.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ccb0bcde193e1b59842203a035d5b4b48eb7cb34443bda76c4440dd83c822421",
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening_custom_tests/prepare.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "52b40da833902f1d908e3eddb96c43c56adb6d5119d492b55adaab5eb356b6a7",
+   "format": 1
+  },
+  {
+   "name": "molecule/ssh_hardening_custom_tests/converge.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6e42e7205fbb8eb7a1d3b1931f97d27b3ed7d84f40fa8fb82ee7fee6d53687a3",
+   "format": 1
+  },
+  {
+   "name": "molecule/mysql_hardening",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/mysql_hardening/molecule.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a71fee535e497b7bef898611111b7e01ba64b00ef596a605e628cb6d9487c3dc",
+   "format": 1
+  },
+  {
+   "name": "molecule/mysql_hardening/requirements.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cf29735392e6f8d4f53dbcbc1717dfdfe78745b1ef90225e848e744a69de40c1",
+   "format": 1
+  },
+  {
+   "name": "molecule/mysql_hardening/verify.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "552686cd6d3e9a2f1395f69f5dcc107a894d756e210d282e42b3e4fe964de486",
+   "format": 1
+  },
+  {
+   "name": "molecule/mysql_hardening/INSTALL.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "be0bc1db4d401f04970bc53cae043557804339dec2d373d7f09eeb112d0c4f9b",
+   "format": 1
+  },
+  {
+   "name": "molecule/mysql_hardening/prepare.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "121ec6081ca929c0307ed7c200bccaf160f9075cbef2c9a28b800fc21daca1df",
+   "format": 1
+  },
+  {
+   "name": "molecule/mysql_hardening/converge.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9b35130e243d48f16b60a3b941ed01bc5620da2a039e9d600038f51150a948de",
+   "format": 1
+  },
+  {
+   "name": "LICENSE",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+   "format": 1
+  },
+  {
+   "name": ".config",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".config/ansible-lint.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "67cca48250a5c0607fbb5bb319a9b6d4ea40b9fc545ab802e7d8e3425b2c2384",
+   "format": 1
+  },
+  {
+   "name": "README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1cd9ad3fb39b8eddba360d4b7f24805f046482761e70185cb1350502fa6ef9d6",
+   "format": 1
+  },
+  {
+   "name": ".gitmodules",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "940bbdf9c4a4606f7d44cbabbaedc184ceda6ee94f589f3f31e1881fc0a6d3b5",
+   "format": 1
+  },
+  {
+   "name": "CHANGELOG.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "55b7ab3bf3eb7b6a874912da41e4563899a9d94eecaef492966846fd2ebaac61",
+   "format": 1
+  },
+  {
+   "name": "CONTRIBUTING.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "249b0361590a4434a15edca3b1e57098e20a44c38fb0fd367628479c9934b239",
+   "format": 1
+  },
+  {
+   "name": ".prettierignore",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8530d39bd219113000f182349d06795cbd657bbe4baf279b778ffe60c7dd846a",
+   "format": 1
+  }
+ ],
+ "format": 1
+}

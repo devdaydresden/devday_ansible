@@ -1,0 +1,14 @@
+---
+- name: Harden system
+
+  hosts: all
+  become: yes
+
+  vars:
+    sysctl_overwrite:
+      net.ipv4.ip_forward: 1
+
+  collections:
+    - devsec.hardening
+  roles:
+    - devsec.hardening.os_hardening
