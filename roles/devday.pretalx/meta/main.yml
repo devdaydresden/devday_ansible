@@ -1,0 +1,20 @@
+galaxy_info:
+  author: Jan Dittberner
+  description: PreTalx setup for Dev Day
+  company: T-Systems Multimedia Solutions GmbH
+
+  issue_tracker_url: https://github.com/devdaydresden/devday_ansible/issues
+  license: GPL-3.0-or-later
+
+  min_ansible_version: 2.1
+
+
+  platforms:
+  - name: Debian
+    versions:
+    - all
+
+  galaxy_tags: []
+
+dependencies:
+  - geerlingguy.docker

@@ -1,0 +1,4 @@
+-- vim: ft=sql
+CREATE USER pretalx PASSWORD '{{ devday_pretalx_db_password }}';
+CREATE DATABASE pretalx;
+GRANT CREATE, CONNECT ON DATABASE pretalx TO pretalx;

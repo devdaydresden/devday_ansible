@@ -1,0 +1,8 @@
+---
+- name: "Install pretalx"
+  hosts: all
+  become: yes
+
+  roles:
+    - devday.postgresql
+    - devday.pretalx

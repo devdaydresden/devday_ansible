@@ -1,0 +1,35 @@
+---
+- name: create directory for devday
+  ansible.builtin.file:
+    path: /var/lib/devday
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: create directory for PostgreSQL database init scripts
+  ansible.builtin.file:
+    path: /var/lib/devday/pgsql.init
+    state: directory
+    owner: root
+    group: 999
+    mode: "0750"
+
+- name: create PreTalx DB init script
+  ansible.builtin.template:
+    src: pretalx.initdb.sql.j2
+    dest: /var/lib/devday/pgsql.init/pretalx.initdb.sql
+    owner: 999
+    group: 999
+    mode: "0400"
+
+- name: create PostgreSQL container
+  community.docker.docker_container:
+    name: pgsql
+    # TODO: add cap_drop and capabilities
+    image: "postgres:{{ devday_postgres_version }}"
+    env:
+      POSTGRES_PASSWORD: "{{ devday_postgres_password }}"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - /var/lib/devday/pgsql.init:/docker-entrypoint-initdb.d
