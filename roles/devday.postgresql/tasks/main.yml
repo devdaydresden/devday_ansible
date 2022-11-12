@@ -23,6 +23,14 @@
     group: 999
     mode: "0400"
 
+- name: create Dev Day API init script
+  ansible.builtin.template:
+    src: devday_api.initdb.sql.j2
+    dest: /var/lib/devday/pgsql.init/devday_api.initdb.sql
+    owner: 999
+    group: 999
+    mode: "0400"
+
 - name: create PostgreSQL container
   community.docker.docker_container:
     name: pgsql

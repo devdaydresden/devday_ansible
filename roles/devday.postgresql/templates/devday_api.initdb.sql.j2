@@ -1,0 +1,4 @@
+-- vim: ft=sql
+CREATE USER devday PASSWORD '{{ devday_api_db_password }}';
+CREATE DATABASE devday;
+GRANT CREATE, CONNECT ON DATABASE devday TO devday;
