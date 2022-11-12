@@ -1,0 +1,32 @@
+---
+# vim: sw=2 ts=2 et ft=yaml
+extends: default
+
+rules:
+  line-length:
+    max: 100
+    level: warning
+  braces:
+    max-spaces-inside: 1
+    level: error
+  brackets:
+    max-spaces-inside: 1
+    level: error
+  colons:
+    level: error
+  commas:
+    level: error
+  comments: disable
+  comments-indentation: disable
+  empty-lines:
+    max: 3
+    level: error
+  hyphens:
+    level: error
+  indentation:
+    spaces: 2
+  key-duplicates: enable
+  new-lines:
+    type: unix
+  truthy:
+    allowed-values: ['true', 'false', 'yes', 'no'] # allow yes/no, its default for Ansible
