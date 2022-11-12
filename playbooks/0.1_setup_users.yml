@@ -22,8 +22,10 @@
         system: "{{ item.system|default(False) }}"
         password: "{{ item.password|default('') }}"
         update_password: on_create
+        shell: "{{ item.shell|default(omit) }}"
         groups:
           - sudo
+        append: yes
       loop: "{{ admin_users }}"
     - name: setup ssh key
       ansible.posix.authorized_key:
@@ -31,3 +33,11 @@
         state: present
         key: "{{ item.ssh_key }}"
       loop: "{{ admin_users }}"
+    - name: allow passwordless sudo
+      ansible.builtin.copy:
+        dest: /etc/sudoers.d/local_admins
+        content: "%sudo	ALL=(ALL:ALL) NOPASSWD: ALL"
+        owner: root
+        group: root
+        mode: "0440"
+        validate: "visudo -q -c -f %s"
