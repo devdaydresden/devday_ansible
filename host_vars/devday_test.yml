@@ -22,3 +22,4 @@ admin_users:
 docker_users:
   - ansible
   - jandd
+ssh_allow_users: "ansible jandd"

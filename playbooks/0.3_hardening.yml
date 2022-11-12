@@ -12,3 +12,4 @@
     - devsec.hardening
   roles:
     - devsec.hardening.os_hardening
+    - devsec.hardening.ssh_hardening
