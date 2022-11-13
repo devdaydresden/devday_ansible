@@ -1,2 +1,56 @@
 ---
-# tasks file for devday.pretalx
+- name: create directory for devday
+  ansible.builtin.file:
+    path: /var/lib/devday
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: create Redis container
+  community.docker.docker_container:
+    name: redis
+    image: "redis:{{ devday_redis_version|default('latest') }}"
+    restart_policy: unless-stopped
+    volumes:
+      - redis-data:/data
+
+- name: create PreTalx container
+  community.docker.docker_container:
+    name: pretalx
+    image: "pretalx/standalone:{{ devday_pretalx_version|default('latest') }}"
+    restart_policy: unless-stopped
+    env:
+      PRETALX_DATA_DIR: /data
+      PRETALX_FILESYSTEM_STATIC: /static
+      PRETALX_SITE_URL: "{{ devday_pretalx_site_url }}"
+      PRETALX_DB_TYPE: postgresql
+      PRETALX_DB_NAME: "{{ devday_pretalx_db_name|default('pretalx') }}"
+      PRETALX_DB_USER: "{{ devday_pretalx_db_user|default('pretalx') }}"
+      PRETALX_DB_PASS: "{{ devday_pretalx_db_password|default('pretalx') }}"
+      PRETALX_DB_HOST: pgsql
+      PRETALX_DB_PORT: "{{ devday_pretalx_db_port|default(omit) }}"
+      PRETALX_MAIL_FROM: "{{ devday_pretalx_mail_from }}"
+      PRETALX_MAIL_HOST: "{{ devday_pretalx_mail_host|default('mail') }}"
+      PRETALX_MAIL_PORT: "{{ devday_pretalx_mail_port|default(25) }}"
+      PRETALX_MAIL_USER: "{{ devday_pretalx_mail_user|default(omit) }}"
+      PRETALX_MAIL_PASSWORD: "{{ devday_pretalx_mail_password|default(omit) }}"
+      PRETALX_MAIL_TLS: "{{ devday_pretalx_mail_tls|default(omit) }}"
+      PRETALX_CELERY_BACKEND: redis://redis/1
+      PRETALX_CELERY_BROKER: redis://redis/2
+      PRETALX_REDIS: redis://redis/3
+      PRETALX_REDIS_SESSIONS: "True"
+      PRETALX_LOGGING_EMAIL: "{{ devday_pretalx_logging_email|default(omit) }}"
+      PRETALX_LANGUAGE_CODE: de
+      PRETALX_TIME_ZONE: Europe/Berlin
+    volumes:
+      - pretalx-data:/data
+      - pretalx-static:/static
+
+- name: create network for pretalx containers
+  community.docker.docker_network:
+    name: pretalx_net
+    connected:
+      - pgsql
+      - redis
+      - pretalx

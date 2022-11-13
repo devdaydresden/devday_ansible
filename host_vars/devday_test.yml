@@ -3,10 +3,16 @@ admin_users:
   - name: ansible
     system: yes
     uid: 500
-    ssh_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZKpgLP9E22f1HtCjR5bpsaSlDaPXWxVl3umi0lJabi ansible"
+    ssh_key: >-
+      ssh-ed25519
+      AAAAC3NzaC1lZDI1NTE5AAAAIAZKpgLP9E22f1HtCjR5bpsaSlDaPXWxVl3umi0lJabi
+      ansible
   - name: jandd
     uid: 1000
-    ssh_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHoAw+TMzLy2B4WIXG9PMQE5VS9l7eAxsYhKur9CXlF7 jandd@devday"
+    ssh_key: >-
+      ssh-ed25519
+      AAAAC3NzaC1lZDI1NTE5AAAAIHoAw+TMzLy2B4WIXG9PMQE5VS9l7eAxsYhKur9CXlF7
+      jandd@devday
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
       32656638343362653634333531313933316139346431633735636163663639393835346535306363
@@ -48,3 +54,10 @@ devday_api_db_password: !vault |
     6330373738353062660a346335363138306130613065376261333638303463316362323062626364
     66383261633535393536653835383064353131386433343436313232356565386264623734353665
     3938376566656436656234366131383636653866366631656164
+
+devday_postgres_version: 15-bullseye
+devday_redis_version: 7-bullseye
+devday_pretalx_version: v2.3.1
+
+devday_pretalx_site_url: https://pretalx.devday-test.gruenkohl.org
+devday_pretalx_mail_from: info@devday-test.gruenkohl.org
