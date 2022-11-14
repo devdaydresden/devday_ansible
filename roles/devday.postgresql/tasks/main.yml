@@ -31,6 +31,15 @@
     group: 999
     mode: "0400"
 
+- name: create pretalx container network
+  community.docker.docker_network:
+    name: pretalx_net
+  register: pretalx_net_info
+
+- name: print network info
+  ansible.builtin.debug:
+    msg: "{{ pretalx_net_info.network.IPAM.Config[0].Subnet }}"
+
 - name: create PostgreSQL container
   community.docker.docker_container:
     name: pgsql
@@ -43,3 +52,5 @@
     volumes:
       - pgdata:/var/lib/postgresql/data
       - /var/lib/devday/pgsql.init:/docker-entrypoint-initdb.d
+    networks:
+      - name: pretalx_net
