@@ -1,0 +1,33 @@
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+
+    [entryPoints.web.http]
+      [entryPoints.web.http.redirections]
+        [entryPoints.web.http.redirections.entryPoint]
+          to = "websecure"
+          scheme = "https"
+
+  [entryPoints.websecure]
+    address = ":443"
+
+[providers.docker]
+
+[certificatesResolvers]
+  [certificatesResolvers.myresolver]
+    [certificatesResolvers.myresolver.acme]
+      email = "{{ devday_acme_email }}"
+      #caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+      keyType = "EC384"
+      [certificatesResolvers.myresolver.acme.httpChallenge]
+        entryPoint = "web"
+      [certificatesResolvers.myresolver.acme.tlsChallenge]
+
+[api]
+  dashboard = true
+
+[log]
+  level = "{{ traefik_log_level|default('INFO') }}"
+
+[ping]
+  entryPoint = "websecure"
