@@ -111,6 +111,19 @@
     networks:
       - name: pretalx_net
 
+# setup outgoing mail relay
+- name: create Postfix mail relay container
+  community.docker.docker_container:
+    name: mail
+    image: "panubo/postfix:{{ devday_postfix_version }}"
+    env:
+      MAILNAME: "{{ devday_mailname }}"
+      BOUNCE_ADDRESS: "{{ devday_pretalx_mail_from }}"
+    volumes:
+      - postfix_spool:/var/spool/postfix:rw
+    networks:
+      - name: pretalx_net
+
 # setup traefik reverse proxy
 - name: create traefik configuration directory
   ansible.builtin.file:
@@ -172,5 +185,3 @@
     name: traefik
     state: started
     enabled: yes
-
-# TODO: setup outgoing mail relay

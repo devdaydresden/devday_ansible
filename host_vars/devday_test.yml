@@ -58,7 +58,11 @@ devday_pretalx_db_password: !vault |
 devday_postgres_version: 15-bullseye
 devday_redis_version: 7-bullseye
 devday_pretalx_version: v2.3.1
+devday_postfix_version: 1.4.3
+
 devday_acme_email: info@devday-test.gruenkohl.org
+
+devday_mailname: devday-test.gruenkohl.org
 
 traefik_version: v2.9.4
 traefik_archive_checksum: "sha256:e02ed55759612a35f36a279480972bce46380d6631761ebe9f6141da847b271c"
