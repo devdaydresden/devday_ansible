@@ -7,3 +7,13 @@
 * `0.3_hardening.yml` -- apply hardening for OS and ssh, after running this
   playbook you will not be able to use root for ssh
 * `0.4_install_devday_software.yml` -- install and configure the Dev Day software
+
+## Expected ssh settings
+
+```
+Host devday-test
+Hostname devday-test.gruenkohl.org
+User <your_user_name>
+IdentitiesOnly yes
+IdentityFile ~/.ssh/id_ed25519_devday
+```

@@ -2,7 +2,6 @@
 - name: setup users
 
   hosts: all
-  remote_user: root
 
   tasks:
     - name: make sure sudo is installed
