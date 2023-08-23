@@ -1,0 +1,43 @@
+---
+- name: create directory for devday
+  ansible.builtin.file:
+    path: /var/lib/devday
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: create wordpress container network
+  community.docker.docker_network:
+    name: wordpress_net
+  register: wordpress_net_info
+
+- name: print network info
+  ansible.builtin.debug:
+    msg: "{{ wordpress_net_info.network.IPAM.Config[0].Subnet }}"
+
+- name: create Wordpress container
+  community.docker.docker_container:
+    name: wordpress
+    image: "wordpress:{{ devday_wordpress_version }}"
+    restart_policy: unless-stopped
+    env:
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: "{{ devday_wordpress_db_password }}"
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_TABLE_PREFIX: wp_
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - name: wordpress_net
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: wordpress_net
+      traefik.http.routers.wordpress-web.rule: "Host(`devday-test.gruenkohl.org`)"
+      traefik.http.routers.wordpress-web.tls: "true"
+      traefik.http.routers.wordpress-web.tls.domains: "devday-test.gruenkohl.org"
+      traefik.http.routers.wordpress-web.service: wordpress
+      traefik.http.routers.wordpress-web.tls.certResolver: "myresolver"
+      traefik.http.services.wordpress.loadbalancer.server.port: "80"
+      traefik.http.services.wordpress.loadbalancer.passhostheader: "true"
