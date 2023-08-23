@@ -1,0 +1,49 @@
+---
+- name: create directory for devday
+  ansible.builtin.file:
+    path: /var/lib/devday
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: create directory for MariaDB database init scripts
+  ansible.builtin.file:
+    path: /var/lib/devday/mariadb.init
+    state: directory
+    owner: root
+    group: 999
+    mode: "0750"
+
+- name: create Wordpress DB init script
+  ansible.builtin.copy:
+    src: wordpress.initdb.sql
+    dest: /var/lib/devday/mariadb.init/wordpress.initdb.sql
+    owner: root
+    group: 999
+    mode: "0640"
+
+- name: create wordpress container network
+  community.docker.docker_network:
+    name: wordpress_net
+  register: wordpress_net_info
+
+- name: print network info
+  ansible.builtin.debug:
+    msg: "{{ wordpress_net_info.network.IPAM.Config[0].Subnet }}"
+
+- name: create MariaDB container
+  community.docker.docker_container:
+    name: mariadb
+    image: "mariadb:{{ devday_mariadb_version }}"
+    restart_policy: unless-stopped
+    env:
+      MARIADB_ROOT_PASSWORD: "{{ devday_mariadb_root_password }}"
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: "{{ devday_wordpress_db_password }}"
+    volumes:
+      - mariadbdata:/var/lib/mysql
+      - /var/lib/devday/mariadb.init:/docker-entrypoint-initdb.d
+    networks:
+      - name: wordpress_net

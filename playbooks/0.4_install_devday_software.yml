@@ -6,3 +6,4 @@
   roles:
     - devday.postgresql
     - devday.pretalx
+    - devday.mariadb
