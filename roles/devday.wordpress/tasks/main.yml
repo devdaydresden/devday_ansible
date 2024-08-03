@@ -28,15 +28,15 @@
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_TABLE_PREFIX: wp_
     volumes:
-      - wordpress:/var/www/html
+      - wordpress:/var/www/html/wp-content
     networks:
       - name: wordpress_net
     labels:
       traefik.enable: "true"
       traefik.docker.network: wordpress_net
-      traefik.http.routers.wordpress-web.rule: "Host(`devday-test.gruenkohl.org`)"
+      traefik.http.routers.wordpress-web.rule: "Host(`{{ devday_wordpress_site_fqdn|default('localhost') }}`)"
       traefik.http.routers.wordpress-web.tls: "true"
-      traefik.http.routers.wordpress-web.tls.domains: "devday-test.gruenkohl.org"
+      traefik.http.routers.wordpress-web.tls.domains: "{{ devday_wordpress_site_fqdn|default('localhost') }}"
       traefik.http.routers.wordpress-web.service: wordpress
       traefik.http.routers.wordpress-web.tls.certResolver: "myresolver"
       traefik.http.services.wordpress.loadbalancer.server.port: "80"

@@ -39,7 +39,8 @@
     restart_policy: unless-stopped
     env:
       PRETALX_DATA_DIR: /data
-      PRETALX_FILESYSTEM_STATIC: /static
+      PRETALX_FILESYSTEM_MEDIA: /public/media
+      PRETALX_FILESYSTEM_STATIC: /public/static
       PRETALX_SITE_URL: "{{ devday_pretalx_site_url }}"
       PRETALX_DB_TYPE: postgresql
       PRETALX_DB_NAME: "{{ devday_pretalx_db_name|default('pretalx') }}"
@@ -64,13 +65,13 @@
       - name: pretalx_net
     volumes:
       - pretalx-data:/data
-      - pretalx-static:/static
+      - pretalx-public:/public
     labels:
       traefik.enable: "true"
       traefik.docker.network: pretalx_net
-      traefik.http.routers.pretalx-web.rule: "Host(`pretalx.devday-test.gruenkohl.org`)"
+      traefik.http.routers.pretalx-web.rule: "Host(`{{ devday_pretalx_site_fqdn|default('localhost') }}`)"
       traefik.http.routers.pretalx-web.tls: "true"
-      traefik.http.routers.pretalx-web.tls.domains: "pretalx.devday-test.gruenkohl.org"
+      traefik.http.routers.pretalx-web.tls.domains: "{{ devday_pretalx_site_fqdn|default('localhost') }}"
       traefik.http.routers.pretalx-web.service: pretalx
       traefik.http.routers.pretalx-web.tls.certResolver: "myresolver"
       traefik.http.services.pretalx.loadbalancer.server.port: "8080"
@@ -84,7 +85,8 @@
     restart_policy: unless-stopped
     env:
       PRETALX_DATA_DIR: /data
-      PRETALX_FILESYSTEM_STATIC: /static
+      PRETALX_FILESYSTEM_MEDIA: /public/media
+      PRETALX_FILESYSTEM_STATIC: /public/static
       PRETALX_SITE_URL: "{{ devday_pretalx_site_url }}"
       PRETALX_DB_TYPE: postgresql
       PRETALX_DB_NAME: "{{ devday_pretalx_db_name|default('pretalx') }}"
@@ -107,7 +109,7 @@
       PRETALX_TIME_ZONE: Europe/Berlin
     volumes:
       - pretalx-data:/data
-      - pretalx-static:/static
+      - pretalx-public:/public
     networks:
       - name: pretalx_net
 
