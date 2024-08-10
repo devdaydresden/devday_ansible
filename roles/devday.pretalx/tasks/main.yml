@@ -20,7 +20,7 @@
 - name: Create PreTalx web container
   community.docker.docker_container:
     name: pretalx-web
-    image: "pretalx/standalone:{{ devday_pretalx_version|default('latest') }}"
+    image: "{{ devday_pretalx_imape|default('ghcr.io/devdaydresden/pretalx-docker') }}:{{ devday_pretalx_version|default('latest') }}"
     entrypoint: gunicorn
     command:
       - "pretalx.wsgi"
@@ -80,7 +80,7 @@
 - name: create PreTalx celery worker container
   community.docker.docker_container:
     name: pretalx-celery
-    image: "pretalx/standalone:{{ devday_pretalx_version|default('latest') }}"
+    image: "{{ devday_pretalx_imape|default('ghcr.io/devdaydresden/pretalx-docker') }}:{{ devday_pretalx_version|default('latest') }}"
     command: taskworker
     restart_policy: unless-stopped
     env:

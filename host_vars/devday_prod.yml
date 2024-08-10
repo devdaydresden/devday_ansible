@@ -109,7 +109,7 @@ devday_wordpress_db_password: !vault |
 devday_postgres_version: 15-bullseye
 devday_mariadb_version: 11.0.3
 devday_redis_version: 7-bullseye
-devday_pretalx_version: v2024.1.0
+devday_pretalx_version: v2024.2.1
 devday_postfix_version: 1.4.3
 devday_wordpress_version: 6-php8.0
 
