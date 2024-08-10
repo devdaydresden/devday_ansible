@@ -1,7 +1,7 @@
 devday.pretalx
 ==============
 
-Setup [PreTalx](https://github.com/pretalx/pretalx) for Dev Day.
+Setup [Traefik](https://traefik.io) for Dev Day.
 
 Requirements
 ------------
@@ -11,7 +11,7 @@ None
 Role Variables
 --------------
 
-- `devday_pretalx_db_password` defines the password of the pretalx database user
+None
 
 Dependencies
 ------------
@@ -24,7 +24,7 @@ Example Playbook
 ```
 - hosts: servers
   roles:
-    - devday.pretalx
+    - devday.traefik
 ```
 
 License
