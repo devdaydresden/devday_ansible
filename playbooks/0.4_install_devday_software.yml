@@ -5,6 +5,7 @@
 
   roles:
     - devday.postgresql
-    - devday.pretalx
     - devday.mariadb
+    - devday.traefik
+    - devday.pretalx
     - devday.wordpress

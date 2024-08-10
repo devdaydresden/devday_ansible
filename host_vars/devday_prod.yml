@@ -109,11 +109,11 @@ devday_wordpress_db_password: !vault |
 devday_postgres_version: 15-bullseye
 devday_mariadb_version: 11.0.3
 devday_redis_version: 7-bullseye
-devday_pretalx_version: v2.3.1
+devday_pretalx_version: v2024.1.0
 devday_postfix_version: 1.4.3
 devday_wordpress_version: 6-php8.0
 
-devday_acme_email: info@devday-pord.gruenkohl.org
+devday_acme_email: info@devday-prod.gruenkohl.org
 
 devday_mailname: devday-prod.gruenkohl.org
 
@@ -122,7 +122,18 @@ traefik_archive_checksum: "sha256:78f2b6f32b7467a7d7dc7fa1293ef2e9de506e5e9ef2d2
 
 devday_pretalx_site_fqdn: pretalx.devday-prod.gruenkohl.org
 devday_pretalx_site_url: https://pretalx.devday-prod.gruenkohl.org
-devday_pretalx_mail_from: info@devday-prod.gruenkohl.org
-devday_pretalx_version: v2024.1.0
+devday_pretalx_mail_from: pretix@test.devday.de
+devday_pretalx_mail_host: mail.devday.de
+devday_pretalx_mail_port: "587"
+devday_pretalx_mail_tls: "true"
+devday_pretalx_mail_user: pretix@test.devday.de
+devday_pretalx_mail_password: !vault |
+    $ANSIBLE_VAULT;1.1;AES256
+    63373739666366616264626262613337636538326432393033653538636265613731376234343830
+    3635343066353131343839366661633131643562626365650a373465633930363834363564386166
+    32653163336135353031393837613031653132353932303861626132306565646537623935656661
+    3732653133363130660a623535313939323630326434343233663137613436616339396361616431
+    61353639666638376534666138373739373163383531623132303837343233636336
+
 
 devday_wordpress_site_fqdn: www.devday-prod.gruenkohl.org
