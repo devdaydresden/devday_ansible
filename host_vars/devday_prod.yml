@@ -63,7 +63,7 @@ docker_users:
   - jandd
   - stb
   - drombo
-ssh_allow_users: "ansible jandd stb"
+ssh_allow_users: "ansible jandd stb drombo"
 
 devday_postgres_password: !vault |
     $ANSIBLE_VAULT;1.1;AES256
