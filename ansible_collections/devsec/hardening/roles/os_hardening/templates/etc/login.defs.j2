@@ -110,7 +110,7 @@ PASS_MAX_DAYS     {{ os_auth_pw_max_age }}
 PASS_MIN_DAYS     {{ os_auth_pw_min_age }}
 
 # Number of days warning given before a password expires.
-PASS_WARN_AGE     7
+PASS_WARN_AGE     {{ os_auth_pw_warn_age }}
 
 # Min/max values for automatic uid selection in useradd
 UID_MIN           {{ os_auth_uid_min }}
@@ -136,7 +136,7 @@ SUB_GID_MIN       {{ os_auth_sub_gid_min }}
 SUB_GID_MAX       {{ os_auth_sub_gid_max }}
 SUB_GID_COUNT     {{ os_auth_sub_gid_count }}
 
-# Max number of login retries if password is bad. This will most likely be overriden by PAM, since the default pam_unix module has it's own built in of 3 retries. However, this is a safe fallback in case you are using an authentication module that does not enforce PAM_MAXTRIES.
+# Max number of login retries if password is bad. This will most likely be overridden by PAM, since the default pam_unix module has it's own built in of 3 retries. However, this is a safe fallback in case you are using an authentication module that does not enforce PAM_MAXTRIES.
 LOGIN_RETRIES     {{ os_auth_retries }}
 
 # Max time in seconds for login
@@ -155,7 +155,7 @@ DEFAULT_HOME      {{ 'yes' if os_auth_allow_homeless else 'no' }}
 # the user to be removed (passed as the first argument).
 #USERDEL_CMD       /usr/sbin/userdel_local
 
-# Instead of the real user shell, the program specified by this parameter will be launched, although its visible name (`argv[0]`) will be the shell's. The program may do whatever it wants (logging, additional authentification, banner, ...) before running the actual shell.
+# Instead of the real user shell, the program specified by this parameter will be launched, although its visible name (`argv[0]`) will be the shell's. The program may do whatever it wants (logging, additional authentication, banner, ...) before running the actual shell.
 #FAKE_SHELL        /bin/fakeshell
 
 # If defined, either full pathname of a file containing device names or a ":" delimited list of device names.  Root logins will be allowed only upon these devices.
@@ -189,7 +189,7 @@ SHA_CRYPT_MAX_ROUNDS    {{ os_sha_crypt_max_rounds }}
 
 # Obsoleted by PAM
 # ================
-# These options are now handled by PAM. Please edit the appropriate file in `/etc/pam.d/` to enable the equivelants of them.
+# These options are now handled by PAM. Please edit the appropriate file in `/etc/pam.d/` to enable their equivalents.
 #MOTD_FILE
 #DIALUPS_CHECK_ENAB
 #LASTLOG_ENAB

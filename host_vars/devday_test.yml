@@ -64,7 +64,7 @@ docker_users:
   - jandd
   - stb
   - drombo
-ssh_allow_users: "ansible jandd"
+ssh_allow_users: "ansible jandd stb drombo"
 
 devday_postgres_password: !vault |
     $ANSIBLE_VAULT;1.1;AES256
@@ -118,8 +118,11 @@ devday_acme_email: info@devday-test.gruenkohl.org
 
 devday_mailname: devday-test.gruenkohl.org
 
-traefik_version: v2.9.4
+traefik_version: v2.11.7
 traefik_archive_checksum: "sha256:e02ed55759612a35f36a279480972bce46380d6631761ebe9f6141da847b271c"
 
+devday_pretalx_site_fqdn: pretalx.devday-test.gruenkohl.org
 devday_pretalx_site_url: https://pretalx.devday-test.gruenkohl.org
 devday_pretalx_mail_from: info@devday-test.gruenkohl.org
+
+devday_wordpress_site_fqdn: devday-test.gruenkohl.org

@@ -1,5 +1,5 @@
 ---
-- name: create directory for devday
+- name: Create directory for devday
   ansible.builtin.file:
     path: /var/lib/devday
     state: directory
@@ -7,7 +7,7 @@
     group: root
     mode: "0755"
 
-- name: create Redis container
+- name: Create Redis container
   community.docker.docker_container:
     name: redis
     image: "redis:{{ devday_redis_version|default('latest') }}"
@@ -17,10 +17,10 @@
     volumes:
       - redis-data:/data
 
-- name: create PreTalx web container
+- name: Create PreTalx web container
   community.docker.docker_container:
     name: pretalx-web
-    image: "pretalx/standalone:{{ devday_pretalx_version|default('latest') }}"
+    image: "{{ devday_pretalx_imape|default('ghcr.io/devdaydresden/pretalx-docker') }}:{{ devday_pretalx_version|default('latest') }}"
     entrypoint: gunicorn
     command:
       - "pretalx.wsgi"
@@ -39,7 +39,8 @@
     restart_policy: unless-stopped
     env:
       PRETALX_DATA_DIR: /data
-      PRETALX_FILESYSTEM_STATIC: /static
+      PRETALX_FILESYSTEM_MEDIA: /public/media
+      PRETALX_FILESYSTEM_STATIC: /public/static
       PRETALX_SITE_URL: "{{ devday_pretalx_site_url }}"
       PRETALX_DB_TYPE: postgresql
       PRETALX_DB_NAME: "{{ devday_pretalx_db_name|default('pretalx') }}"
@@ -64,27 +65,28 @@
       - name: pretalx_net
     volumes:
       - pretalx-data:/data
-      - pretalx-static:/static
+      - pretalx-public:/public
     labels:
       traefik.enable: "true"
       traefik.docker.network: pretalx_net
-      traefik.http.routers.pretalx-web.rule: "Host(`pretalx.devday-test.gruenkohl.org`)"
+      traefik.http.routers.pretalx-web.service: pretalx-web
+      traefik.http.routers.pretalx-web.rule: "Host(`{{ devday_pretalx_site_fqdn|default('localhost') }}`)"
       traefik.http.routers.pretalx-web.tls: "true"
-      traefik.http.routers.pretalx-web.tls.domains: "pretalx.devday-test.gruenkohl.org"
-      traefik.http.routers.pretalx-web.service: pretalx
+      traefik.http.routers.pretalx-web.tls.domains: "{{ devday_pretalx_site_fqdn|default('localhost') }}"
       traefik.http.routers.pretalx-web.tls.certResolver: "myresolver"
-      traefik.http.services.pretalx.loadbalancer.server.port: "8080"
-      traefik.http.services.pretalx.loadbalancer.passhostheader: "true"
+      traefik.http.services.pretalx-web.loadbalancer.server.port: "8080"
+      traefik.http.services.pretalx-web.loadbalancer.passhostheader: "true"
 
 - name: create PreTalx celery worker container
   community.docker.docker_container:
     name: pretalx-celery
-    image: "pretalx/standalone:{{ devday_pretalx_version|default('latest') }}"
+    image: "{{ devday_pretalx_imape|default('ghcr.io/devdaydresden/pretalx-docker') }}:{{ devday_pretalx_version|default('latest') }}"
     command: taskworker
     restart_policy: unless-stopped
     env:
       PRETALX_DATA_DIR: /data
-      PRETALX_FILESYSTEM_STATIC: /static
+      PRETALX_FILESYSTEM_MEDIA: /public/media
+      PRETALX_FILESYSTEM_STATIC: /public/static
       PRETALX_SITE_URL: "{{ devday_pretalx_site_url }}"
       PRETALX_DB_TYPE: postgresql
       PRETALX_DB_NAME: "{{ devday_pretalx_db_name|default('pretalx') }}"
@@ -107,9 +109,27 @@
       PRETALX_TIME_ZONE: Europe/Berlin
     volumes:
       - pretalx-data:/data
-      - pretalx-static:/static
+      - pretalx-public:/public
     networks:
       - name: pretalx_net
+
+- name: Create nginx container to serve static files
+  community.docker.docker_container:
+    name: pretalx-static
+    image: docker.io/library/nginx
+    restart_policy: unless-stopped
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: pretalx_net
+      traefik.http.routers.pretalx-static.service: pretalx-static
+      traefik.http.routers.pretalx-static.rule: "Host(`{{ devday_pretalx_site_fqdn|default('localhost') }}`) && (PathPrefix(`/media`) || PathPrefix(`/static`))"
+      traefik.http.routers.pretalx-static.tls: "true"
+      traefik.http.routers.pretalx-static.tls.domains: "{{ devday_pretalx_site_fqdn|default('localhost') }}"
+      traefik.http.routers.pretalx-static.tls.certResolver: "myresolver"
+      traefik.http.services.pretalx-static.loadbalancer.server.port: "80"
+      traefik.http.services.pretalx-static.loadbalancer.passhostheader: "true"
+    volumes:
+      - pretalx-public:/usr/share/nginx/html
 
 # setup outgoing mail relay
 - name: create Postfix mail relay container
@@ -123,65 +143,3 @@
       - postfix_spool:/var/spool/postfix:rw
     networks:
       - name: pretalx_net
-
-# setup traefik reverse proxy
-- name: create traefik configuration directory
-  ansible.builtin.file:
-    path: /etc/traefik
-    state: directory
-    owner: root
-    group: root
-    mode: "0750"
-
-- name: create traefik configuration file
-  ansible.builtin.template:
-    src: traefik_config.toml.j2
-    dest: /etc/traefik/config.toml
-    owner: root
-    group: root
-    mode: "0640"
-
-- name: create traefik working directory
-  ansible.builtin.file:
-    path: /var/lib/traefik
-    state: directory
-    owner: root
-    group: root
-    mode: "0750"
-
-- name: download traefik binary
-  ansible.builtin.get_url:
-    url: "https://github.com/traefik/traefik/releases/download/{{ traefik_version }}/traefik_{{ traefik_version }}_linux_amd64.tar.gz"
-    checksum: "{{ traefik_archive_checksum }}"
-    dest: "/var/lib/devday/traefik_{{ traefik_version }}_linux_amd64.tar.gz"
-    owner: root
-    group: root
-    mode: "0644"
-
-- name: unpack traefik binary
-  ansible.builtin.unarchive:
-    src: "/var/lib/devday/traefik_{{ traefik_version }}_linux_amd64.tar.gz"
-    remote_src: yes
-    dest: "/usr/local/sbin"
-    include: traefik
-    owner: root
-    group: root
-    mode: "0750"
-
-- name: create systemd service for traefik
-  ansible.builtin.copy:
-    src: traefik.service
-    dest: /etc/systemd/system/traefik.service
-    owner: root
-    group: root
-    mode: 0644
-
-- name: reload systemd config
-  ansible.builtin.systemd:
-    daemon_reload: yes
-
-- name: start and enable traefik
-  ansible.builtin.systemd:
-    name: traefik
-    state: started
-    enabled: yes

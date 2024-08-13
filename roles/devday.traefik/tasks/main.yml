@@ -1,0 +1,63 @@
+---
+
+# setup traefik reverse proxy
+- name: create traefik configuration directory
+  ansible.builtin.file:
+    path: /etc/traefik
+    state: directory
+    owner: root
+    group: root
+    mode: "0750"
+
+- name: create traefik configuration file
+  ansible.builtin.template:
+    src: traefik_config.toml.j2
+    dest: /etc/traefik/config.toml
+    owner: root
+    group: root
+    mode: "0640"
+
+- name: create traefik working directory
+  ansible.builtin.file:
+    path: /var/lib/traefik
+    state: directory
+    owner: root
+    group: root
+    mode: "0750"
+
+- name: download traefik binary
+  ansible.builtin.get_url:
+    url: "https://github.com/traefik/traefik/releases/download/{{ traefik_version }}/traefik_{{ traefik_version }}_linux_amd64.tar.gz"
+    checksum: "{{ traefik_archive_checksum }}"
+    dest: "/var/lib/devday/traefik_{{ traefik_version }}_linux_amd64.tar.gz"
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: unpack traefik binary
+  ansible.builtin.unarchive:
+    src: "/var/lib/devday/traefik_{{ traefik_version }}_linux_amd64.tar.gz"
+    remote_src: yes
+    dest: "/usr/local/sbin"
+    include: traefik
+    owner: root
+    group: root
+    mode: "0750"
+
+- name: create systemd service for traefik
+  ansible.builtin.copy:
+    src: traefik.service
+    dest: /etc/systemd/system/traefik.service
+    owner: root
+    group: root
+    mode: 0644
+
+- name: reload systemd config
+  ansible.builtin.systemd:
+    daemon_reload: yes
+
+- name: start and enable traefik
+  ansible.builtin.systemd:
+    name: traefik
+    state: started
+    enabled: yes
