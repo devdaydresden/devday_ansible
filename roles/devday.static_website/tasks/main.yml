@@ -11,6 +11,7 @@
   community.docker.docker_container:
     name: devday-static-website
     image: "{{ devday_static_website_image|default('ghcr.io/devdaydresden/devday_static_website') }}:{{ devday_static_website_version|default('latest') }}"
+    pull: always
     platform: linux/amd64
     restart_policy: unless-stopped
     labels:
