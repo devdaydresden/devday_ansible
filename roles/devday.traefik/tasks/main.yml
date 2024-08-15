@@ -1,63 +1,41 @@
 ---
-
-# setup traefik reverse proxy
-- name: create traefik configuration directory
-  ansible.builtin.file:
-    path: /etc/traefik
-    state: directory
-    owner: root
-    group: root
-    mode: "0750"
-
-- name: create traefik configuration file
-  ansible.builtin.template:
-    src: traefik_config.toml.j2
-    dest: /etc/traefik/config.toml
-    owner: root
-    group: root
-    mode: "0640"
-
-- name: create traefik working directory
-  ansible.builtin.file:
-    path: /var/lib/traefik
-    state: directory
-    owner: root
-    group: root
-    mode: "0750"
-
-- name: download traefik binary
-  ansible.builtin.get_url:
-    url: "https://github.com/traefik/traefik/releases/download/{{ traefik_version }}/traefik_{{ traefik_version }}_linux_amd64.tar.gz"
-    checksum: "{{ traefik_archive_checksum }}"
-    dest: "/var/lib/devday/traefik_{{ traefik_version }}_linux_amd64.tar.gz"
-    owner: root
-    group: root
-    mode: "0644"
-
-- name: unpack traefik binary
-  ansible.builtin.unarchive:
-    src: "/var/lib/devday/traefik_{{ traefik_version }}_linux_amd64.tar.gz"
-    remote_src: yes
-    dest: "/usr/local/sbin"
-    include: traefik
-    owner: root
-    group: root
-    mode: "0750"
-
-- name: create systemd service for traefik
-  ansible.builtin.copy:
-    src: traefik.service
-    dest: /etc/systemd/system/traefik.service
-    owner: root
-    group: root
-    mode: 0644
-
-- name: reload systemd config
-  ansible.builtin.systemd:
-    daemon_reload: yes
-
-- name: start and enable traefik
-  ansible.builtin.systemd:
+- name: Create traefik container
+  community.docker.docker_container:
     name: traefik
-    state: started
-    enabled: yes
+    image: "{{ devday_traefik_image|default('traefik') }}:{{ devday_traefik_image_tag|default('latest') }}"
+    ports:
+      - "80:80"  # Optional: HTTP
+      - "443:443"  # Optional: HTTPS
+    command:
+      - "--log.level=DEBUG"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--api.dashboard=true"
+      - "--api.insecure=false"
+      - "--ping.entryPoint=websecure"
+      - "--log.level={{ traefik_log_level|default('INFO') }}"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=websecure"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.websecure.http.tls=true"
+      - "--certificatesResolvers.myresolver.acme.email={{ devday_acme_email }}"
+      - "--certificatesresolvers.myresolver.acme.storage=/acme/acme.json"
+      - "--certificatesResolvers.myresolver.acme.keyType=EC384"
+      - "--certificatesResolvers.myresolver.acme.httpChallenge.entryPoint=web"
+      - "--certificatesResolvers.myresolver.acme.tlsChallenge=true"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:z"
+      - "/var/lib/traefik:/acme"
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.traefik_dashboard.rule: "(Host(`localhost`) || Host(`web.devday.de`) ) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+      traefik.http.routers.traefik_dashboard.entrypoints: "websecure"
+      traefik.http.routers.traefik_dashboard.tls: "true"
+      traefik.http.routers.traefik_dashboard.tls.certResolver: "myresolver"
+      traefik.http.routers.traefik_dashboard.tls.domains: "web.devday.de"
+      traefik.http.routers.traefik_dashboard.service: "api@internal"
+      traefik.http.routers.traefik_dashboard.middlewares: "auth-dashboard"
+      traefik.http.middlewares.auth-dashboard.basicauth.users: "{{ devday_traefik_dashboard_user }}:{{ devday_traefik_dashboard_password_hash }}"
+
+    restart_policy: unless-stopped

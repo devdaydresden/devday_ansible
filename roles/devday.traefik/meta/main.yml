@@ -1,7 +1,7 @@
 galaxy_info:
-  author: Jan Dittberner
+  author: Jan Dittberner, Sebastian Breit
   description: Traefik setup for Dev Day
-  company: T-Systems Multimedia Solutions GmbH
+  company: Telekom MMS GmbH
 
   issue_tracker_url: https://github.com/devdaydresden/devday_ansible/issues
   license: GPL-3.0-or-later
