@@ -26,7 +26,7 @@
       - "--certificatesResolvers.myresolver.acme.tlsChallenge=true"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:z"
-      - "./acme:/acme"
+      - "/var/lib/traefik:/acme"
     labels:
       traefik.enable: "true"
       traefik.http.routers.traefik_dashboard.rule: "(Host(`localhost`) || Host(`web.devday.de`) ) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
