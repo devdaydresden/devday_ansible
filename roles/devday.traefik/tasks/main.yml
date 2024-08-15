@@ -4,9 +4,8 @@
     name: traefik
     image: "{{ devday_traefik_image|default('traefik') }}:{{ devday_traefik_image_tag|default('latest') }}"
     ports:
-      - "8088:80"  # Optional: HTTP
-      - "8443:443"  # Optional: HTTPS
-      - "8081:8080"  # Optional: Traefik Dashboard
+      - "80:80"  # Optional: HTTP
+      - "443:443"  # Optional: HTTPS
     command:
       - "--log.level=DEBUG"
       - "--providers.docker=true"
@@ -19,20 +18,22 @@
       - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
       - "--entrypoints.web.http.redirections.entryPoint.scheme=websecure"
       - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.websecure.http.tls=true"
       - "--certificatesResolvers.myresolver.acme.email={{ devday_acme_email }}"
-      - "--certificatesresolvers.myresolver.acme.storage=acme.json"
+      - "--certificatesresolvers.myresolver.acme.storage=/acme/acme.json"
       - "--certificatesResolvers.myresolver.acme.keyType=EC384"
       - "--certificatesResolvers.myresolver.acme.httpChallenge.entryPoint=web"
       - "--certificatesResolvers.myresolver.acme.tlsChallenge=true"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:z"
+      - "./acme:/acme"
     labels:
       traefik.enable: "true"
-      traefik.http.routers.traefik_dashboard.rule: "Host(`localhost`) && (PathPrefix('/api') || PathPrefix('/dashboard'))"
+      traefik.http.routers.traefik_dashboard.rule: "(Host(`localhost`) || Host(`web.devday.de`) ) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
       traefik.http.routers.traefik_dashboard.entrypoints: "websecure"
       traefik.http.routers.traefik_dashboard.tls: "true"
       traefik.http.routers.traefik_dashboard.tls.certResolver: "myresolver"
       traefik.http.routers.traefik_dashboard.service: "api@internal"
-      traefik.http.routers.traefik_dashboard.middlewares: "basic-auth-dashboard"
-      traefik.http.middlewares.basic-auth-dashboard.basicauth.users: "{{ devday_traefik_dashboard_user }}`:`{{ devday_traefik_dashboard_password_hash }}"
+      traefik.http.routers.traefik_dashboard.middlewares: "auth-dashboard"
+      traefik.http.middlewares.auth-dashboard.basicauth.users: "{{ devday_traefik_dashboard_user }}:{{ devday_traefik_dashboard_password_hash }}"
     restart_policy: unless-stopped
