@@ -33,5 +33,5 @@
       traefik.http.services.non-www.loadbalancer.server.port: "80"
       traefik.http.services.non-www.loadbalancer.passhostheader: "true"
       traefik.http.middlewares.to-www.redirectregex.regex: "^https?://{{ devday_website_short_name }}/(.*)"
-      traefik.http.middlewares.to-www.redirectregex.replacement: "https://www.$${1}"
+      traefik.http.middlewares.to-www.redirectregex.replacement: "https://www.{{ devday_website_short_name }}/$${1}"
       traefik.http.middlewares.to-www.redirectregex.permanent: "true"
