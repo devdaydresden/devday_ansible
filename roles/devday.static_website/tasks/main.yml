@@ -24,3 +24,8 @@
       traefik.http.routers.static-website.tls.certResolver: "myresolver"
       traefik.http.services.static-website.loadbalancer.server.port: "80"
       traefik.http.services.static-website.loadbalancer.passhostheader: "true"
+      traefik.http.routers.to-www.rule: "Host(`devday.de`)"
+      traefik.http.routers.to-www.middlewares: to-www
+      traefik.http.middlewares.to-www.redirectregex.regex: "^https?://devday.de/(.*)"
+      traefik.http.middlewares.to-www.redirectregex.replacement: "https://www.$${1}"
+      traefik.http.middlewares.to-www.redirectregex.permanent: "true"
