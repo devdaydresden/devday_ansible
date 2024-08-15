@@ -139,6 +139,7 @@ devday_pretalx_mail_password: !vault |
 devday_wordpress_site_fqdn: www.devday-prod.gruenkohl.org
 
 devday_website_fqdn: "www.devday.de"
+devday_website_short_name: "devday.de"
 devday_static_website_image: "ghcr.io/devdaydresden/devday_static_website"
 devday_static_website_version: "main"
 
