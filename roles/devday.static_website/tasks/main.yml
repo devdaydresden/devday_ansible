@@ -16,7 +16,7 @@
     restart_policy: unless-stopped
     labels:
       traefik.enable: "true"
-      traefik.docker.network: website_net
+      #traefik.docker.network: website_net
       traefik.http.routers.static-website.service: static-website
       traefik.http.routers.static-website.rule: "Host(`{{ devday_website_fqdn|default('localhost') }}`)"
       traefik.http.routers.static-website.tls: "true"
