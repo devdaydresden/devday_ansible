@@ -29,7 +29,7 @@
       - "/var/lib/traefik:/acme"
     labels:
       traefik.enable: "true"
-      traefik.http.routers.traefik_dashboard.rule: "(Host(`localhost`) || Host(`web.devday.de`) ) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+      traefik.http.routers.traefik_dashboard.rule: "( Host(`web.devday.de`) ) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
       traefik.http.routers.traefik_dashboard.entrypoints: "websecure"
       traefik.http.routers.traefik_dashboard.tls: "true"
       traefik.http.routers.traefik_dashboard.tls.certResolver: "myresolver"
