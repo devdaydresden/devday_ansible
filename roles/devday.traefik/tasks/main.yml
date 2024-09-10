@@ -1,4 +1,26 @@
 ---
+- name: Create traefik default network
+  community.docker.docker_network:
+    name: traefik_net
+
+- name: create pretalx container network
+  community.docker.docker_network:
+    name: pretalx_net
+  register: pretalx_net_info
+
+- name: print network info
+  ansible.builtin.debug:
+    msg: "{{ pretalx_net_info.network.IPAM.Config[0].Subnet }}"
+
+- name: create wordpress container network
+  community.docker.docker_network:
+    name: wordpress_net
+  register: wordpress_net_info
+
+- name: print network info
+  ansible.builtin.debug:
+    msg: "{{ wordpress_net_info.network.IPAM.Config[0].Subnet }}"
+
 - name: Create traefik container
   community.docker.docker_container:
     name: traefik
@@ -27,6 +49,10 @@
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:z"
       - "/var/lib/traefik:/acme"
+    networks:
+      - name: pretalx_net
+      - name: traefik_net
+      - name: wordpress_net
     labels:
       traefik.enable: "true"
       traefik.http.routers.traefik_dashboard.rule: "( Host(`web.devday.de`) ) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"

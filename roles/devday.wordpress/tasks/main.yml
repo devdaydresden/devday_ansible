@@ -7,15 +7,6 @@
     group: root
     mode: "0755"
 
-- name: create wordpress container network
-  community.docker.docker_network:
-    name: wordpress_net
-  register: wordpress_net_info
-
-- name: print network info
-  ansible.builtin.debug:
-    msg: "{{ wordpress_net_info.network.IPAM.Config[0].Subnet }}"
-
 - name: create Wordpress container
   community.docker.docker_container:
     name: wordpress
