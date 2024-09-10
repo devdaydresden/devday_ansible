@@ -111,7 +111,7 @@
       - pretalx-data:/data
       - pretalx-public:/public
     networks:
-      - name: pretalx_net
+      - name: "pretalx_net"
 
 - name: Create nginx container to serve static files
   community.docker.docker_container:
@@ -130,6 +130,8 @@
       traefik.http.services.pretalx-static.loadbalancer.passhostheader: "true"
     volumes:
       - pretalx-public:/usr/share/nginx/html
+    networks:
+      - name: "pretalx_net"
 
 # setup outgoing mail relay
 - name: create Postfix mail relay container
