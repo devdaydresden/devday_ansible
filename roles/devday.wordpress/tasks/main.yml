@@ -36,7 +36,6 @@
       traefik.docker.network: wordpress_net
       traefik.http.routers.wordpress-web.rule: "Host(`{{ devday_wordpress_site_fqdn|default('localhost') }}`)"
       traefik.http.routers.wordpress-web.service: wordpress
-      traefik.http.routers.wordpress-web.tls.certResolver: "myresolver"
       traefik.http.services.wordpress.loadbalancer.server.port: "80"
       traefik.http.services.wordpress.loadbalancer.passhostheader: "true"
 

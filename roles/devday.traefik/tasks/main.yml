@@ -56,14 +56,12 @@
     labels:
       traefik.enable: "true"
       traefik.http.routers.traefik_dashboard.rule: "Host(`{{ devday_web_fqdn }}`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`))"
-      traefik.http.routers.traefik_dashboard.tls.certResolver: "myresolver"
       traefik.http.routers.traefik_dashboard.service: "api@internal"
       traefik.http.routers.traefik_dashboard.middlewares: "auth-dashboard"
       traefik.http.middlewares.auth-dashboard.basicauth.users: "{{ devday_traefik_dashboard_user }}:{{ devday_traefik_dashboard_password_hash }}"
       traefik.http.routers.redirect.rule: >-
         Host(`{{ devday_website_short_name }}`) || 
         Host(`{{ devday_web_fqdn }}`)
-      traefik.http.routers.redirect.tls.certResolver: "myresolver"
       traefik.http.routers.redirect.middlewares: "redirect"
       traefik.http.middlewares.redirect.redirectregex.regex: ".*"
       traefik.http.middlewares.redirect.redirectregex.replacement: "https://www.devday.de/"

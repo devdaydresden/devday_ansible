@@ -21,6 +21,5 @@
       traefik.docker.network: traefik_net
       traefik.http.routers.static-website.service: static-website
       traefik.http.routers.static-website.rule: "Host(`{{ devday_website_fqdn|default('localhost') }}`)"
-      traefik.http.routers.static-website.tls.certResolver: "myresolver"
       traefik.http.services.static-website.loadbalancer.server.port: "80"
       traefik.http.services.static-website.loadbalancer.passhostheader: "true"
