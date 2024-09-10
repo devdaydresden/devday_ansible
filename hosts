@@ -1,2 +1,1 @@
-devday_test ansible_host=devday-test
 devday_prod ansible_host=web.devday.de ansible_become=yes
