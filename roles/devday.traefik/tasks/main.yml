@@ -56,10 +56,10 @@
     labels:
       traefik.enable: "true"
       traefik.http.routers.traefik_dashboard.rule: "( Host(`web.devday.de`) ) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
-      traefik.http.routers.traefik_dashboard.entrypoints: "websecure"
-      traefik.http.routers.traefik_dashboard.tls: "true"
+      # traefik.http.routers.traefik_dashboard.entrypoints: "websecure"
+      # traefik.http.routers.traefik_dashboard.tls: "true"
       traefik.http.routers.traefik_dashboard.tls.certResolver: "myresolver"
-      traefik.http.routers.traefik_dashboard.tls.domains: "web.devday.de"
+      # traefik.http.routers.traefik_dashboard.tls.domains: "web.devday.de"
       traefik.http.routers.traefik_dashboard.service: "api@internal"
       traefik.http.routers.traefik_dashboard.middlewares: "auth-dashboard"
       traefik.http.middlewares.auth-dashboard.basicauth.users: "{{ devday_traefik_dashboard_user }}:{{ devday_traefik_dashboard_password_hash }}"

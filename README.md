@@ -8,6 +8,11 @@
   playbook you will not be able to use root for ssh
 * `0.4_install_devday_software.yml` -- install and configure the Dev Day software
 
+Run:
+```
+ansible-playbook playbooks/0.4_install_devday_software.yml --inventory=./hosts --limit devday_prod
+```
+
 ## Expected ssh settings
 
 ```
