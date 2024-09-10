@@ -11,8 +11,8 @@
 ## Expected ssh settings
 
 ```
-Host devday-test
-Hostname devday-test.gruenkohl.org
+Host devday-prod
+Hostname web.devday.de
 User <your_user_name>
 IdentitiesOnly yes
 IdentityFile ~/.ssh/id_ed25519_devday
