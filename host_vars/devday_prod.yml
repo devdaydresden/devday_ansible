@@ -71,6 +71,7 @@ docker_users:
   - jandd
   - stb
   - drombo
+  - mime
 ssh_allow_users: "ansible jandd stb drombo mime"
 
 devday_postgres_password: !vault |
