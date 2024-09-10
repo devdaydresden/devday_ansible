@@ -14,9 +14,11 @@
     pull: always
     platform: linux/amd64
     restart_policy: unless-stopped
+    networks:
+      - name: traefik_net
     labels:
       traefik.enable: "true"
-      traefik.docker.network: website_net
+      traefik.docker.network: traefik_net
       traefik.http.routers.static-website.service: static-website
       traefik.http.routers.static-website.rule: "Host(`{{ devday_website_fqdn|default('localhost') }}`)"
       traefik.http.routers.static-website.tls: "true"

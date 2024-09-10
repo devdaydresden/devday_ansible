@@ -23,15 +23,6 @@
     group: 999
     mode: "0640"
 
-- name: create wordpress container network
-  community.docker.docker_network:
-    name: wordpress_net
-  register: wordpress_net_info
-
-- name: print network info
-  ansible.builtin.debug:
-    msg: "{{ wordpress_net_info.network.IPAM.Config[0].Subnet }}"
-
 - name: create MariaDB container
   community.docker.docker_container:
     name: mariadb

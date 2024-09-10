@@ -4,9 +4,9 @@
   become: yes
 
   roles:
+    - devday.traefik
     - devday.postgresql
     - devday.mariadb
-    - devday.traefik
     - devday.pretalx
     - devday.wordpress
     - devday.static_website
