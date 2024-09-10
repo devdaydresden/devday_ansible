@@ -120,7 +120,7 @@ devday_mariadb_version: 11.0.3
 devday_redis_version: 7-bullseye
 devday_pretalx_version: v2024.2.1
 devday_postfix_version: 1.4.3
-devday_wordpress_version: 6-php8.0
+devday_wordpress_version: 6-php8.1
 
 devday_acme_email: info@devday-prod.gruenkohl.org
 
@@ -144,8 +144,9 @@ devday_pretalx_mail_password: !vault |
     3732653133363130660a623535313939323630326434343233663137613436616339396361616431
     61353639666638376534666138373739373163383531623132303837343233636336
 
+devday_web_fqdn: web.devday.de
 
-devday_wordpress_site_fqdn: www.devday-prod.gruenkohl.org
+devday_wordpress_site_fqdn: blog.devday.de
 
 devday_website_fqdn: "www.devday.de"
 devday_website_short_name: "devday.de"

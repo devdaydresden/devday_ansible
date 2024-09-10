@@ -3,21 +3,21 @@
   community.docker.docker_network:
     name: traefik_net
 
-- name: create pretalx container network
+- name: Create pretalx container network
   community.docker.docker_network:
     name: pretalx_net
   register: pretalx_net_info
 
-- name: print network info
+- name: Print network info
   ansible.builtin.debug:
     msg: "{{ pretalx_net_info.network.IPAM.Config[0].Subnet }}"
 
-- name: create wordpress container network
+- name: Create wordpress container network
   community.docker.docker_network:
     name: wordpress_net
   register: wordpress_net_info
 
-- name: print network info
+- name: Ürint network info
   ansible.builtin.debug:
     msg: "{{ wordpress_net_info.network.IPAM.Config[0].Subnet }}"
 
@@ -55,13 +55,16 @@
       - name: wordpress_net
     labels:
       traefik.enable: "true"
-      traefik.http.routers.traefik_dashboard.rule: "( Host(`web.devday.de`) ) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
-      # traefik.http.routers.traefik_dashboard.entrypoints: "websecure"
-      # traefik.http.routers.traefik_dashboard.tls: "true"
+      traefik.http.routers.traefik_dashboard.rule: "Host(`{{ devday_web_fqdn }}`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard/`))"
       traefik.http.routers.traefik_dashboard.tls.certResolver: "myresolver"
-      # traefik.http.routers.traefik_dashboard.tls.domains: "web.devday.de"
       traefik.http.routers.traefik_dashboard.service: "api@internal"
       traefik.http.routers.traefik_dashboard.middlewares: "auth-dashboard"
       traefik.http.middlewares.auth-dashboard.basicauth.users: "{{ devday_traefik_dashboard_user }}:{{ devday_traefik_dashboard_password_hash }}"
-
+      traefik.http.routers.redirect.rule: >-
+        Host(`{{ devday_website_short_name }}`) || 
+        Host(`{{ devday_web_fqdn }}`)
+      traefik.http.routers.redirect.tls.certResolver: "myresolver"
+      traefik.http.routers.redirect.middlewares: "redirect"
+      traefik.http.middlewares.redirect.redirectregex.regex: ".*"
+      traefik.http.middlewares.redirect.redirectregex.replacement: "https://www.devday.de/"
     restart_policy: unless-stopped

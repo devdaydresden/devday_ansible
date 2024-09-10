@@ -7,7 +7,7 @@
     password: "{{ ghcr_registry_access_token }}"
     reauthorize: true
 
-- name: website nginx container
+- name: Website nginx container
   community.docker.docker_container:
     name: devday-static-website
     image: "{{ devday_static_website_image|default('ghcr.io/devdaydresden/devday_static_website') }}:{{ devday_static_website_version|default('latest') }}"
@@ -21,19 +21,6 @@
       traefik.docker.network: traefik_net
       traefik.http.routers.static-website.service: static-website
       traefik.http.routers.static-website.rule: "Host(`{{ devday_website_fqdn|default('localhost') }}`)"
-      traefik.http.routers.static-website.tls: "true"
-      traefik.http.routers.static-website.tls.domains: "{{ devday_website_fqdn|default('localhost') }}"
       traefik.http.routers.static-website.tls.certResolver: "myresolver"
       traefik.http.services.static-website.loadbalancer.server.port: "80"
       traefik.http.services.static-website.loadbalancer.passhostheader: "true"
-      traefik.http.routers.non-www.service: non-www
-      traefik.http.routers.non-www.rule: "Host(`{{ devday_website_short_name }}`)"
-      traefik.http.routers.non-www.tls: "true"
-      traefik.http.routers.non-www.tls.domains: "{{ devday_website_short_name }}"
-      traefik.http.routers.non-www.tls.certResolver: "myresolver"
-      traefik.http.routers.non-www.middlewares: to-www
-      traefik.http.services.non-www.loadbalancer.server.port: "80"
-      traefik.http.services.non-www.loadbalancer.passhostheader: "true"
-      traefik.http.middlewares.to-www.redirectregex.regex: "^https?://{{ devday_website_short_name }}/(.*)"
-      traefik.http.middlewares.to-www.redirectregex.replacement: "https://www.{{ devday_website_short_name }}/"
-      traefik.http.middlewares.to-www.redirectregex.permanent: "true"
