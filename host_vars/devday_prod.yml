@@ -58,12 +58,20 @@ admin_users:
       33616561623637376465353364376639393761316462333666366430396238323064643466653031
       35363264626164353538333238613461653763393931363538626433636436386265
     shell: /bin/bash
+  - name: mime
+    uid: 1003
+    ssh_key: >-
+      ssh-rsa
+      AAAAB3NzaC1yc2EAAAADAQABAAABAQCkIoK1CS9gB8Lm1n3RdwoyO6mwnafDvwP6e6IjSGGeVV4cPcEeqKQlZDf0DpcSZ8zIeK5XOZ1bvt1Qqk7VLXr2M4i9U8wb34BDqhPu9vR+j5jZlBhU6TJbJbJe8Dwh01AJcL2Emfco4c8/YnLojiEWeo90O8Nq3Wuu/MJBPGgOTyBgIX9NypGmrz01wkzIrQ4sgJin6UzTtfUVpqvyHB4XhKEV1Q2Kav7MKmtPcT7zgHRRUXNi5lfZHxbq9C3nkTCwEsR+I0j9/KAgley284P0TEtolT+6vKOyYBgjKbvjM7yApGLRR4dzmLlvV/h60ZL5r2bX8k7M0YC6uTf+Z8RT
+      mmsdom\\mime@rdde00ng
+    password_mime: "*"
+    shell: /bin/bash
 docker_users:
   - ansible
   - jandd
   - stb
   - drombo
-ssh_allow_users: "ansible jandd stb drombo"
+ssh_allow_users: "ansible jandd stb drombo mime"
 
 devday_postgres_password: !vault |
     $ANSIBLE_VAULT;1.1;AES256
