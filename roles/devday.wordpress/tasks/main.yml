@@ -28,7 +28,7 @@
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_TABLE_PREFIX: wp_
     volumes:
-      - wordpress:/var/www/html/wp-content
+      - /var/www/docker/wordpress:/var/www/html/wp-content
     networks:
       - name: wordpress_net
     labels:
@@ -38,10 +38,3 @@
       traefik.http.routers.wordpress-web.service: wordpress
       traefik.http.services.wordpress.loadbalancer.server.port: "80"
       traefik.http.services.wordpress.loadbalancer.passhostheader: "true"
-
-- name: Install Custom Wordpress Theme
-  ansible.builtin.git:
-    repo: 'https://github.com/devdaydresden/devday-wp-theme.git'
-    dest: /var/lib/docker/volumes/wordpress/_data/themes/devday
-    force: true
-    umask: "022"
