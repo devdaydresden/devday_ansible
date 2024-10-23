@@ -1,0 +1,6 @@
+[Unit]
+Description = Dev Day Mail Bot
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/docker run --rm --name devday_mailbot -v /root/mailbot_addresses.txt:/addresses.txt:ro --env-file /etc/default/devday_mailbot ghcr.io/devdaydresden/devday_mailbot:latest

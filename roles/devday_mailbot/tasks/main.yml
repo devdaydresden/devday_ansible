@@ -1,0 +1,39 @@
+---
+- name: Log into ghcr.io
+  community.docker.docker_login:
+    registry_url: "ghcr.io"
+    username: "{{ ghcr_registry_user }}"
+    password: "{{ ghcr_registry_access_token }}"
+    reauthorize: true
+
+- name: Get mailbot docker image from ghcr.io
+  community.docker.docker_image:
+    name: ghcr.io/devdaydresden/devday_mailbot:latest
+    source: pull
+    force_source: true
+
+- name: Create dummy address list file
+  ansible.builtin.file:
+    path: /root/mailbot_addresses.txt
+    state: touch
+    owner: root
+    group: 1000
+    mode: "0640"
+
+- name: Create defaults file for the mailbot
+  ansible.builtin.template:
+    src: mailbot_defaults.j2
+    dest: /etc/default/devday_mailbot
+    owner: root
+    group: root
+    mode: "0640"
+  notify: Reload systemd
+
+- name: Create service file for running the mailbot
+  ansible.builtin.copy:
+    src: devday_mailbot.service
+    dest: /etc/systemd/system/devday_mailbot.service
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Reload systemd

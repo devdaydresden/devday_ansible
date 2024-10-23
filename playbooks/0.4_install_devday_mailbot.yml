@@ -1,0 +1,7 @@
+---
+- name: "Install devday_mailbot"
+  hosts: devday_prod
+  become: yes
+
+  roles:
+    - devday_mailbot
