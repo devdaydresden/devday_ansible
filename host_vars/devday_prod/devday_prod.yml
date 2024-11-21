@@ -145,11 +145,11 @@ devday_pretalx_mail_password: !vault |
     61353639666638376534666138373739373163383531623132303837343233636336
 
 devday_web_fqdn: web.devday.de
-
-devday_wordpress_site_fqdn: blog.devday.de
-
-devday_website_fqdn: "www.devday.de"
+devday_wordpress_site_fqdn: www.devday.de
 devday_website_short_name: "devday.de"
+
+# static site settings
+devday_website_fqdn: "wwwold.devday.de"
 devday_static_website_image: "ghcr.io/devdaydresden/devday_static_website"
 devday_static_website_version: "main"
 
