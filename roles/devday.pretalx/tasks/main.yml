@@ -60,7 +60,6 @@
       PRETALX_REDIS_SESSIONS: "True"
       PRETALX_LOGGING_EMAIL: "{{ devday_pretalx_logging_email|default(omit) }}"
       PRETALX_LANGUAGE_CODE: de
-      PRETALX_SITE_CSP: frame-anchestors devday.de *.devday.de
       PRETALX_TIME_ZONE: Europe/Berlin
     networks:
       - name: pretalx_net
