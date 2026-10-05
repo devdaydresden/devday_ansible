@@ -160,9 +160,9 @@ devday_pretalx_version: v2024.2.1
 devday_postfix_version: 1.4.3
 devday_wordpress_version: 6-php8.1
 
-devday_acme_email: info@devday-prod.gruenkohl.org
+devday_acme_email: info@devday.de
 
-devday_mailname: devday-prod.gruenkohl.org
+devday_mailname: devday.de
 
 traefik_version: v2.11.7
 traefik_archive_checksum: "sha256:78f2b6f32b7467a7d7dc7fa1293ef2e9de506e5e9ef2d22fe300bb531c8dc9a9"
