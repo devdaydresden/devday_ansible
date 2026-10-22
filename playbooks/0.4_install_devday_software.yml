@@ -1,5 +1,5 @@
 ---
-- name: "Install pretalx"
+- name: "Install all Dev Day software components"
   hosts: all
   become: yes
 

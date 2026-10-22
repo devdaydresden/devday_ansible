@@ -28,6 +28,7 @@
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_TABLE_PREFIX: wp_
     volumes:
+      - wordpress-code:/var/www/html
       - /var/www/docker/wordpress:/var/www/html/wp-content
     networks:
       - name: wordpress_net
